@@ -105,6 +105,11 @@ function articleCreator(articleData) {
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(expand);
+
+  // set class names
+  article.classList.add("article");
+  date.classList.add("date");
+  expand.classList.add("expandButton");
 }
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
