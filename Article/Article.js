@@ -126,6 +126,12 @@ function articleCreator(articleData) { // Step 1
   return article; // Step 3
 }
 
+let addArticle = document.querySelector(".articles"); // Step 4
+
+data.forEach(articleObject => {
+  addArticle.appendChild(articleCreator(articleObject));
+})
+
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
