@@ -89,6 +89,7 @@ const data = [
 ];
 
 function articleCreator(articleData) {
+  // define new elements
   const article = document.createElement("div");
   const title = document.createElement("h2");
   const date = document.createElement("p");
@@ -96,6 +97,14 @@ function articleCreator(articleData) {
   const p2 = document.createElement("p");
   const p3 = document.createElement("p");
   const expand = document.createElement("span");
+
+  // setup structure of elements
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expand);
 }
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
