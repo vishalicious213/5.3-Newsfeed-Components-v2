@@ -88,7 +88,7 @@ const data = [
   }
 ];
 
-function articleCreator(articleData) {
+function articleCreator(articleData) { // Step 1
   // define new elements
   const article = document.createElement("div");
   const title = document.createElement("h2");
@@ -118,6 +118,12 @@ function articleCreator(articleData) {
   p2.textContent = articleData.secondParagraph;
   p3.textContent = articleData.thirdParagraph;
   expand.textContent = "Read More"; // Added text. Empty button won't show up.
+
+  expand.addEventListener("click", (event) => { // Step 2
+    article.classList.toggle("article-open");
+  })
+
+  return article; // Step 3
 }
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
