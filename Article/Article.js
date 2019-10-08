@@ -110,6 +110,14 @@ function articleCreator(articleData) {
   article.classList.add("article");
   date.classList.add("date");
   expand.classList.add("expandButton");
+
+  // set text content
+  title.textContent = articleData.title;
+  date.textContent = articleData.date;
+  p1.textContent = articleData.firstParagraph;
+  p2.textContent = articleData.secondParagraph;
+  p3.textContent = articleData.thirdParagraph;
+  expand.textContent = "Read More"; // Added text. Empty button won't show up.
 }
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
