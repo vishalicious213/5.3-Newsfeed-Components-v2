@@ -11,6 +11,7 @@ let menuItems = [
 
 function createMenu(menuData) { // Step 1
   // define new elements
+  const header = document.querySelector(".header");
   const menu = document.createElement("div");
   const menuList = document.createElement("ul");
 
@@ -22,15 +23,26 @@ function createMenu(menuData) { // Step 1
     menuItem.textContent = menuData[i]
     menuList.appendChild(menuItem);
     console.log(menuData[i]);
-  }
+  };
 
-  // set class names - nothing to set
+  // set class names
+  menu.classList.add("menu");
 
   // set text content
 
-}
+  const menuButton = document.querySelector(".menu-button"); // Step 3
 
-createMenu(menuItems);
+  menuButton.addEventListener("click", (event) => { // Step 4
+    // console.log("clicked");
+    menu.classList.toggle("menu--open");
+  });
+
+  header.appendChild(menu);
+  menu.appendChild(menuList);
+  return menu; // Step 5
+};
+
+createMenu(menuItems); // Step 6
 
 /* 
 
