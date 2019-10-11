@@ -132,6 +132,18 @@ function articleCreator(articleData) { // Step 1
     article.classList.toggle("article-open");
   })
 
+  // stretch - close button
+  expand.addEventListener("click", (event) => {
+    if (expand.textContent === "Read More") { // it was the === vs = again.
+      expand.textContent = "Close";           // thanks, Angel!
+      console.log("read -> close")
+    } else {
+      expand.textContent = "Read More";
+      console.log("close -> read");
+      console.log(event.target)
+    }
+  })
+
   return article; // Step 3
 }
 
