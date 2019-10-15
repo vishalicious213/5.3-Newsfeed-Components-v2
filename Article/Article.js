@@ -85,8 +85,73 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  { // Step 5 (add new article)
+    title: 'I Get My Vegetables Second-Hand',
+    date: 'Sep 5st, 2019',
+    firstParagraph: `Bacon ipsum dolor amet fatback bacon t-bone chuck kielbasa tongue kevin tail drumstick meatloaf shank jerky. Buffalo capicola sausage, pastrami sirloin ball tip bacon biltong meatloaf boudin corned beef leberkas fatback landjaeger alcatra. Tenderloin pastrami spare ribs biltong flank capicola fatback swine venison corned beef short loin ham. Pork chop tail prosciutto chicken flank spare ribs shank.`,
+
+    secondParagraph: `Spare ribs landjaeger venison meatloaf tail, boudin doner sirloin pastrami shankle. Beef pastrami porchetta venison fatback short loin meatball ham hock cow jerky. Pastrami pig boudin leberkas, beef hamburger short loin meatloaf jerky bacon chuck ground round turkey capicola. Jowl kielbasa swine pork belly corned beef tongue.`,
+
+    thirdParagraph: `Turducken andouille kevin tenderloin picanha buffalo ball tip pork capicola. Beef landjaeger bresaola, pork turducken shank t-bone jerky meatloaf tenderloin. T-bone boudin drumstick biltong fatback. Beef ribs ground round corned beef tenderloin ribeye drumstick capicola boudin. Shankle capicola landjaeger ball tip bresaola fatback leberkas pork hamburger jowl bacon t-bone.`
   }
 ];
+
+function articleCreator(articleData) { // Step 1
+  // define new elements
+  const article = document.createElement("div");
+  const title = document.createElement("h2");
+  const date = document.createElement("p");
+  const p1 = document.createElement("p");
+  const p2 = document.createElement("p");
+  const p3 = document.createElement("p");
+  const expand = document.createElement("span");
+
+  // setup structure of elements
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expand);
+
+  // set class names
+  article.classList.add("article");
+  date.classList.add("date");
+  expand.classList.add("expandButton");
+
+  // set text content
+  title.textContent = articleData.title;
+  date.textContent = articleData.date;
+  p1.textContent = articleData.firstParagraph;
+  p2.textContent = articleData.secondParagraph;
+  p3.textContent = articleData.thirdParagraph;
+  expand.textContent = "Read More"; // Added text. Empty button won't show up.
+
+  expand.addEventListener("click", (event) => { // Step 2
+    article.classList.toggle("article-open");
+  })
+
+  // stretch - close button
+  expand.addEventListener("click", (event) => {
+    if (expand.textContent === "Read More") { // it was the === vs = again.
+      expand.textContent = "Close";           // thanks, Angel!
+      console.log("read -> close")
+    } else {
+      expand.textContent = "Read More";
+      console.log("close -> read");
+      console.log(event.target)
+    }
+  })
+
+  return article; // Step 3
+}
+
+let addArticle = document.querySelector(".articles"); // Step 4
+
+data.forEach(articleObject => {
+  addArticle.appendChild(articleCreator(articleObject));
+})
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
