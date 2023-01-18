@@ -22,7 +22,6 @@ function createMenu(menuData) { // Step 1
     let menuItem = document.createElement("li");
     menuItem.textContent = menuData[i]
     menuList.appendChild(menuItem);
-    console.log(menuData[i]);
   };
 
   // set class names
